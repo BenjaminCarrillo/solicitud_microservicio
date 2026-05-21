@@ -31,9 +31,7 @@ public class SolicitudController {
 
     @PostMapping
     public ResponseEntity<Solicitud> postSolicitud(@RequestBody Solicitud solicitud) {
-
         Solicitud nueva;
-
         try {
             nueva = solicitudService.save(solicitud);
             return new ResponseEntity<>(nueva, HttpStatus.CREATED);
