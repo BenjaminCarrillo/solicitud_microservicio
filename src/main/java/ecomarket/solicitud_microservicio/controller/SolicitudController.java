@@ -19,13 +19,10 @@ public class SolicitudController {
 
     @GetMapping
     public ResponseEntity<List<Solicitud>> getSolicitudes() {
-
         List<Solicitud> solicitudes = solicitudService.findAll();
-
         if (solicitudes.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-
         return new ResponseEntity<>(solicitudes, HttpStatus.OK);
     }
 
@@ -35,7 +32,6 @@ public class SolicitudController {
         try {
             nueva = solicitudService.save(solicitud);
             return new ResponseEntity<>(nueva, HttpStatus.CREATED);
-
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
